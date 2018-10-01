@@ -1,0 +1,71 @@
+body {
+	background-image: url(https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2018/universe.jpg); 
+	background-repeat: no-repeat;
+	background-position: center top; 
+	background-color: #B0C4DE; 
+	text-align: center; 
+	font-family: 'helvetica neue', sans-serif;
+	text-align: center; 
+}
+
+h1 {
+	color: white;
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 3em; 
+
+}
+
+.container {
+	width: 480px;
+	height: 480px; 
+	background-color: white; 
+	margin:auto;
+	padding:0;
+	align-content: center; 
+
+}
+
+.gridRow {
+	width: 100%; 
+	margin: auto;
+	box-sizing:border-box;
+	display: block; 
+}
+
+.grid {
+	height: 100%;
+	box-sizing:border-box; 
+	display: inline-block;
+	float:left;
+	border: 0.1px solid #ccc; 
+
+}
+
+button {
+	display: inline-block;
+	background-color: #191970; 
+    border: 2px solid #fff;
+    color: white;
+    padding: 10px 24px;
+    margin-right: 10px; 
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em; 
+    width:200px;
+}
+
+.button-1 {
+	position: relative;
+	float:left; 
+	margin-left: 230px; 
+	margin-top:0.4em;
+	
+}
+
+.button-2 {
+	position: relative;
+	float:right;
+	margin-right:220px;
+	margin-top:0.4em;
+	
+}
