@@ -12,6 +12,7 @@ function createGrid(numberSquares) {
 			let grid = document.createElement('div'); 
 			grid.classList.add('grid'); 
 			grid.style.width = (480 / numberSquares) + 'px'; 
+			grid.style.backgroundColor = "rgb(255, 255, 255)"; 
 			gridRow.append(grid); 
 			}
 		container.append(gridRow); 
@@ -19,22 +20,40 @@ function createGrid(numberSquares) {
 	changeColor(); 
 }
 
-//color function
+//random number between 0 and 255 
+function randomForRGB() {
+    let rand = Math.random() * (256);
+    rand = Math.floor(rand);
+    return rand;
+  }
+
+//random color function
 function getRandomColor() {
-  	let letters = '0123456789ABCDEF';
-  	let color = '#';
-  	for (let i = 0; i < 6; i++) {
-    	color += letters[Math.round(Math.random() * 16)];
-  	}
-  	if (color !== "#FFFFFF") return color;
+  	let r = randomForRGB() + ", ";
+  	let g = randomForRGB() + ", "; 
+  	let b = randomForRGB() + ")";
+  	let color = 'rgb(' + r + g + b; 	
+  	if (color !== "rgb(255, 255, 255)") return color;
   	else getRandomColor(); 
 }
+
 
 function changeColor() {
 	for (let grid of grids) {
 		grid.onmouseover = function () {
-		let randomColor = getRandomColor();
-		grid.style.backgroundColor = randomColor;  	
+			if (grid.style.backgroundColor !== "rgb(255, 255, 255)") {
+				let colorGrid = grid.style.backgroundColor
+					.slice(4, grid.style.backgroundColor.length - 1)
+					.split(', ');  
+				let r = Math.round(+colorGrid[0] * 0.9); 
+				let g = Math.round(+colorGrid[1] * 0.9); 
+				let b = Math.round(+colorGrid[2] * 0.9); 
+				let color = 'rgb(' + r + ', ' + g + ', ' + b + ")"; 
+				grid.style.backgroundColor = color; 
+			} else {
+				let randomColor = getRandomColor();
+				grid.style.backgroundColor = randomColor;
+			}  	
 		};  
 	}
 }		
@@ -46,7 +65,7 @@ function askSizeGrid () {
 	let number = prompt ('Enter size for the grid, integer number between 1 and 64', '16'); 
 	if (number === null) {
 		alert ('You did not input anything');
-		return false;  
+		return 16;
 	}
 	else {
 		if (isNaN(number)) {
@@ -79,7 +98,7 @@ let buttonClear = document.getElementById('clear');
 buttonClear.onclick = clearGrid; 
 function clearGrid() {
 	for (let grid of grids) {
-	grid.style.backgroundColor = '#FFFFFF';  	
+	grid.style.backgroundColor = "rgb(255, 255, 255)";  	
 	};  
 }
 
